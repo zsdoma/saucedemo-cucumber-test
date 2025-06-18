@@ -11,15 +11,21 @@ import io.cucumber.java.en.Then;
 
 public class CommonStepDefs extends AbstractStepDefs {
 
-  protected static final Map<String, By> INPUT_IDS_BY_NAME = Map.of(
-      "Username", By.id("user-name"),
-      "Password", By.id("password"),
-      "Login", By.id("login-button"),
-      "BurgerMenuIcon", By.id("react-burger-menu-btn"),
-      "Logout", By.id("logout_sidebar_link"),
-      "ResetAppState", By.id("reset_sidebar_link")
+  protected static final Map<String, By> INPUT_IDS_BY_NAME = Map.ofEntries(
+      Map.entry("Username", By.id("user-name")),
+      Map.entry("Password", By.id("password")),
+      Map.entry("Login", By.id("login-button")),
+      Map.entry("BurgerMenuIcon", By.id("react-burger-menu-btn")),
+      Map.entry("Logout", By.id("logout_sidebar_link")),
+      Map.entry("ResetAppState", By.id("reset_sidebar_link")),
+      Map.entry("Add to Cart", By.id("add-to-cart")),
+      Map.entry("Checkout", By.id("checkout")),
+      Map.entry("Continue", By.id("continue")),
+      Map.entry("Finish", By.id("finish")),
+      Map.entry("First Name", By.id("first-name")),
+      Map.entry("Last Name", By.id("last-name")),
+      Map.entry("Postal Code", By.id("postal-code"))
   );
-
 
   @Given("the homepage is active")
   public void homepage() {
@@ -31,7 +37,7 @@ public class CommonStepDefs extends AbstractStepDefs {
     homePage.fillInputWithText(INPUT_IDS_BY_NAME.get(inputName), text);
   }
 
-  @Given("the {string} button clicked")
+  @Given("the {string} button is clicked")
   public void clickButton(final String buttonName) {
     homePage.clickElement(INPUT_IDS_BY_NAME.get(buttonName));
   }

@@ -4,13 +4,13 @@ Feature: Inventory
     Given the homepage is active
     And type 'standard_user' into 'Username' field
     And type 'secret_sauce' into 'Password' field
-    And the 'Login' button clicked
+    And the 'Login' button is clicked
 
     # Scenario: Reset app state
     #   Given the 'Sauce Labs Backpack' add button is clicked 
     #   And the 'Sauce Labs Bike Light' add button is clicked 
-    #   And the 'BurgerMenuIcon' button clicked
-    #   And the 'ResetAppState' button clicked
+    #   And the 'BurgerMenuIcon' button is clicked
+    #   And the 'ResetAppState' button is clicked
     #   Then the 'Card Badge' should not be visible
 
     Scenario Outline: Check item images
