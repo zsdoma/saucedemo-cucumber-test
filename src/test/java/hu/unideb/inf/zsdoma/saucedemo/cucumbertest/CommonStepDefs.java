@@ -2,6 +2,7 @@ package hu.unideb.inf.zsdoma.saucedemo.cucumbertest;
 
 import java.util.Map;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.AfterAll;
@@ -15,8 +16,10 @@ public class CommonStepDefs extends AbstractStepDefs {
       "Password", By.id("password"),
       "Login", By.id("login-button"),
       "BurgerMenuIcon", By.id("react-burger-menu-btn"),
-      "Logout", By.id("logout_sidebar_link")
+      "Logout", By.id("logout_sidebar_link"),
+      "ResetAppState", By.id("reset_sidebar_link")
   );
+
 
   @Given("the homepage is active")
   public void homepage() {
@@ -34,8 +37,8 @@ public class CommonStepDefs extends AbstractStepDefs {
   }
 
   @Then("the {string} button is shown")
-  public boolean isButtonPresent(final String buttonName) {
-    return homePage.isElementPresent(INPUT_IDS_BY_NAME.get(buttonName));
+  public void isButtonPresent(final String buttonName) {
+    Assertions.assertTrue(homePage.isElementPresent(INPUT_IDS_BY_NAME.get(buttonName)));
   }
 
   @AfterAll
