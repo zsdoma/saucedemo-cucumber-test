@@ -48,9 +48,20 @@ public class CommonStepDefs extends AbstractStepDefs {
     homePage.clickElement(INPUT_IDS_BY_NAME.get(buttonName));
   }
 
+  @Then("the {string} should not be visible")
+  public void isElementNotVisible(final String elementName) {
+    Assertions.assertFalse(homePage.isElementPresent(CommonElements.COMMON_ELEMENTS_BY_NAME.get(elementName)));
+  }
+
   @Then("the {string} button is shown")
   public void isButtonPresent(final String buttonName) {
     Assertions.assertTrue(homePage.isElementPresent(INPUT_IDS_BY_NAME.get(buttonName)));
+  }
+
+  @Then("the {string} message is shown")
+  public void isMessagePresent(final String message) {
+    By errorMessageElement = By.cssSelector(".error-message-container > h3:nth-child(1)");
+    Assertions.assertEquals(message, homePage.getTextByElement(errorMessageElement));
   }
 
   @AfterAll
