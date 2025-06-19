@@ -1,7 +1,7 @@
 Feature: Checkout
 
   Background:
-    Given the homepage is active
+    Given go to 'Home' page
     And type 'standard_user' into 'Username' field
     And type 'secret_sauce' into 'Password' field
     And the 'Login' button is clicked
@@ -15,16 +15,12 @@ Feature: Checkout
       And type 'Teszt' into 'Last Name' field
       And type '1234' into 'Postal Code' field
       And the 'Continue' button is clicked
+      # TODO check data
       And the 'Finish' button is clicked
       Then the 'Thank you for your order!' label is visible
 
     Scenario Outline: Try to buy with missing checkout data
-      Given the 'BurgerMenuIcon' button is clicked
-      And the 'ResetAppState' button is clicked
-      And the 'Sauce Labs Backpack' label is clicked
-      And the 'Add to Cart' button is clicked
-      And the 'Cart' icon is clicked
-      And the 'Checkout' button is clicked
+      Given go to 'Checkout' page
       And type '<first_name>' into 'First Name' field
       And type '<last_name>' into 'Last Name' field
       And type '<postal_code>' into 'Postal Code' field

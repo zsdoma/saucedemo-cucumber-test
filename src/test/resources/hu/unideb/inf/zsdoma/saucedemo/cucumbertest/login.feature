@@ -1,7 +1,7 @@
 Feature: Login
 
   Background:
-    Given the homepage is active
+    Given go to 'Home' page
 
     Scenario: Login and logout
       Given type 'standard_user' into 'Username' field 

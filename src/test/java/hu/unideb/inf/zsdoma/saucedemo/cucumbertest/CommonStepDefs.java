@@ -11,6 +11,11 @@ import io.cucumber.java.en.Then;
 
 public class CommonStepDefs extends AbstractStepDefs {
 
+  private static final Map<String, String> PAGE_PATHS = Map.of(
+      "Home", "/",
+      "Checkout", "/checkout-step-one.html"
+  );
+
   protected static final Map<String, By> INPUT_IDS_BY_NAME = Map.ofEntries(
       Map.entry("Username", By.id("user-name")),
       Map.entry("Password", By.id("password")),
@@ -27,9 +32,9 @@ public class CommonStepDefs extends AbstractStepDefs {
       Map.entry("Postal Code", By.id("postal-code"))
   );
 
-  @Given("the homepage is active")
-  public void homepage() {
-    homePage.openPage();
+  @Given("go to {string} page")
+  public void homepage(final String pageName) {
+    homePage.openPage(PAGE_PATHS.get(pageName));
   }
 
   @Given("type {string} into {string} field")

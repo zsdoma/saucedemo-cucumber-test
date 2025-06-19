@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
-  private static final String PAGE_URL = "https://www.saucedemo.com/";
+  public static final String PAGE_URL = "https://www.saucedemo.com";
 
   private final WebDriver driver;
 
@@ -18,8 +18,8 @@ public class HomePage {
     this.driver = driver;
   }
 
-  public void openPage() {
-    driver.get(PAGE_URL);
+  public void openPage(final String pagePath) {
+    driver.get(PAGE_URL + pagePath);
     PageFactory.initElements(driver, this);
   }
 
