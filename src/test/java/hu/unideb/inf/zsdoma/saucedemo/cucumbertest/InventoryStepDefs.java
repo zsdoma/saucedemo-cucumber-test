@@ -21,7 +21,16 @@ public class InventoryStepDefs extends AbstractStepDefs {
       "Sauce Labs Fleece Jacket", By.id("add-to-cart-sauce-labs-fleece-jacket"),
       "Sauce Labs Onesie", By.id("add-to-cart-sauce-labs-onesie"),
       "Test.allTheThings() T-Shirt (Red)", By.id("add-to-cart-test.allthethings()-t-shirt-(red)"),
-      "Card Badge", By.className("shopping_cart_badge")
+      "Card Badge", By.className("shopping_cart_badge") // TODO move to common
+  );
+
+  private static final Map<String, String> ELEMENTS_BY_NAME = Map.of(
+      "Sauce Labs Backpack", "sauce-labs-backpack",
+      "Sauce Labs Bike Light", "sauce-labs-bike-light",
+      "Sauce Labs Bolt T-Shirt", "sauce-labs-bolt-t-shirt",
+      "Sauce Labs Fleece Jacket", "sauce-labs-fleece-jacket",
+      "Sauce Labs Onesie", "sauce-labs-onesie",
+      "Test.allTheThings() T-Shirt (Red)", "test.allthethings()-t-shirt-(red)"
   );
 
   private static final Map<String, By> ITEM_LABEL_LINK_IDS = Map.of(
@@ -40,6 +49,11 @@ public class InventoryStepDefs extends AbstractStepDefs {
   @Given("the {string} add button is clicked")
   public void clickAddButton(final String itemName) {
     homePage.clickElement(BUTTON_ELEMENTS_BY_NAME.get(itemName));
+  }
+
+  @Given("the {string} remove button is clicked")
+  public void clickRemoveButton(final String itemName) {
+    homePage.clickElement(By.id("remove-" + ELEMENTS_BY_NAME.get(itemName)));
   }
 
   @Given("the {string} label is clicked")

@@ -25,6 +25,7 @@ public class CommonStepDefs extends AbstractStepDefs {
       Map.entry("ResetAppState", By.id("reset_sidebar_link")),
       Map.entry("Add to Cart", By.id("add-to-cart")),
       Map.entry("Checkout", By.id("checkout")),
+      Map.entry("Continue Shopping", By.id("continue-shopping")),
       Map.entry("Continue", By.id("continue")),
       Map.entry("Finish", By.id("finish")),
       Map.entry("First Name", By.id("first-name")),

@@ -9,6 +9,7 @@ Feature: Inventory
     Scenario: Reset app state
       Given the 'Sauce Labs Backpack' add button is clicked 
       And the 'Sauce Labs Bike Light' add button is clicked 
+      Then cart badge count is 2
       And the 'BurgerMenuIcon' button is clicked
       And the 'ResetAppState' button is clicked
       Then the 'Card Badge' should not be visible
